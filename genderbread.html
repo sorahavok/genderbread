@@ -4,11 +4,30 @@
 
 <body>
   <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  {{> createPerson}}
+  <br />
+  {{#each persons}}
+    {{> person}}
+    <br />
+  {{/each}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="person">
+  <div class="person">
+    <div class="name">Name: {{name}}</div>
+    <div class="identity">
+      Gender Identity
+      Woman-ness: {{womanId}}/10
+      Man-ness: {{manId}}/10
+    </div>
+  </div>
+</template>
+
+<template name="createPerson">
+  <form class="new-person">
+    <input type="text" name="name" placeholder="Insert Name" /><br />
+    <label for="womanId">Woman-ness:</label><input type="number" name="womanId" /><br />
+    <label for="manId">Man-ness:</label><input type="number" name="manId" />
+    <input type="submit" value="Submit">
+  </form>
 </template>
