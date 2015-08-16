@@ -9,3 +9,5 @@ autopublish
 insecure
 accounts-ui
 accounts-password
+less
+twbs:bootstrap
