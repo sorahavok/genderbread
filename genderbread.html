@@ -4,12 +4,26 @@
 
 <body>
   <h1>Welcome to Genderbread!</h1>
+  {{> loginButtons}}
+  <br />
+  {{#if currentUser }}
+    {{> userInfo}}
+  {{/if}}
+  <br />
   {{> createPerson}}
   <br />
+  <h2>All Users</h2>
   {{#each persons}}
     {{> person}}
     <br />
   {{/each}}
+  {{#if currentUser}}
+    <h2>Close Users</h2>
+    {{#each closePersons}}
+      {{> person}}
+      <br />
+    {{/each}}
+  {{/if}}
 </body>
 
 <template name="person">
@@ -30,4 +44,8 @@
     <label for="manId">Man-ness:</label><input type="number" name="manId" />
     <input type="submit" value="Submit">
   </form>
+</template>
+
+<template name="userInfo">
+  <div>Your User Info</div>{{curUser.name}}
 </template>
